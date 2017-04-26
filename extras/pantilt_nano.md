@@ -2,7 +2,7 @@
 layout: plugin
 
 id: pantilt_nano
-title: OctoPrint-Pantilt_nano
+title: OctoPrint-Pantilt_Nano
 description: TODO
 author: You
 license: AGPLv3

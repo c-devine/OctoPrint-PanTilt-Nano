@@ -7,7 +7,7 @@
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
 
-    https://github.com/you/OctoPrint-PanTilt_Nano/archive/master.zip
+    https://bitbucket.org/chrisd438/octoprint-pantilt/get/nano_handler.zip
 
 **TODO:** Describe how to install your plugin, if more needs to be done than just installing it via pip or through
 the plugin manager.

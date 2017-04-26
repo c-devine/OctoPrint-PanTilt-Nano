@@ -1,17 +1,9 @@
 # coding=utf-8
 from __future__ import absolute_import
-
+from __future__ import division
 import serial
-
-### (Don't forget to remove me)
-# This is a basic skeleton for your plugin's __init__.py. You probably want to adjust the class name of your plugin
-# as well as the plugin mixins it's subclassing from. This is really just a basic skeleton to get you started,
-# defining your plugin as a template plugin, settings and asset plugin. Feel free to add or remove mixins
-# as necessary.
-#
-# Take a look at the documentation on what other plugin mixins are available.
-
 import octoprint.plugin
+import octoprint.util.comm as comm
 
 
 class Pantilt_nanoPlugin(octoprint.plugin.SettingsPlugin,
@@ -22,6 +14,16 @@ class Pantilt_nanoPlugin(octoprint.plugin.SettingsPlugin,
 	def __init__(self):
 		self.serial = None
 
+	def open_serial_port(self, port, baud):
+		self._logger.info('Opening serial port {}'.format(port))
+		self.serial = serial.Serial()
+		self.serial.baudrate = baud
+		self.serial.port = port
+		try:
+			self.serial.open()
+		except Exception as e:
+			self._logger.warn('Error opening {} : {}'.format(port, e))
+
 	##~~ SettingsPlugin mixin
 
 	def get_template_configs(self):
@@ -30,10 +32,12 @@ class Pantilt_nanoPlugin(octoprint.plugin.SettingsPlugin,
 		]
 
 	##~~ SettingsPlugin mixin
+
 	def get_settings_defaults(self):
 		return dict(
-			port='/dev/ttyUSB0',
-			baud=9600,
+			port=None,
+			ports=comm.serialList(),
+			baud=115200,
 			pan=dict(
 				minUs=1000,
 				maxUs=2000,
@@ -45,6 +49,16 @@ class Pantilt_nanoPlugin(octoprint.plugin.SettingsPlugin,
 				invert=False
 			)
 		)
+
+	def on_settings_save(self, data):
+		old_port = self._settings.get(['port'])
+		old_baud = self._settings.get(['baud'])
+		octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
+		new_port = self._settings.get(['port'])
+		new_baud = self._settings.get(['baud'])
+		if new_port != old_port or new_baud != old_baud:
+			self._logger.info('Updating serial port {} : baud {}'.format(new_port, new_baud))
+			self.open_serial_port(new_port, new_baud)
 
 	##~~ AssetPlugin mixin
 
@@ -65,56 +79,49 @@ class Pantilt_nanoPlugin(octoprint.plugin.SettingsPlugin,
 		# for details.
 		return dict(
 			pantilt_nano=dict(
-				displayName="PanTilt_Nano Plugin",
+				displayName="PanTilt-Nano Plugin",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
 				type="github_release",
 				user="you",
-				repo="OctoPrint-PanTilt_Nano",
+				repo="OctoPrint-PanTilt-Nano",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/you/OctoPrint-PantTilt_Nano/archive/{target_version}.zip"
+				pip="https://github.com/you/OctoPrint-PantTilt-Nano/archive/{target_version}.zip"
 			)
 		)
 
 	##~~ StartupPlugin
+
 	def on_after_startup(self):
-		self._logger.info('opening serial port {}'.format(self._settings.get(['port'])))
-		self.serial = serial.Serial()
-		self.serial.baudrate = self._settings.get(['baud'])
-		self.serial.port = self._settings.get(['port'])
-		try:
-			self.serial.open()
-			self.serial.setDTR(True)
-		except Exception as e:
-			self._logger.info('Error opening {} : {}'.format(self._settings.get(['port']), e))
+		self.open_serial_port(self._settings.get(['port']), self._settings.get(['baud']))
 
 	##~~ ShutdownPlugin
+
 	def on_shutdown(self):
 		self._logger.info("Closing serial port {}".format(self._settings.get(['port'])))
 		self.serial.close()
 
-	##~~ pantilt_handler handler
-	def handle_pantilt(self, pan, tilt):
-		panVal = int(pan) / 100.0 * (self._settings.get(["pan", "maxUs"]) - self._settings.get(["pan", "minUs"])) + self._settings.get(["pan", "minUs"])
-		tiltVal = int(tilt) / 100.0 * (self._settings.get(["tilt", "maxUs"]) - self._settings.get(["tilt", "minUs"])) + self._settings.get(["tilt", "minUs"])
-		self._logger.info('{{command:set, target:panUs, value:{}}}\n'.format(int(panVal)))
-		self._logger.info('{{command:set, target:tiltUs, value:{}}}\n'.format(int(tiltVal)))
+	##~~ pantilt command handler hook
+
+	def handle_pantilt(self, pan, panMin, panMax, tilt, tiltMin, tiltMax, **kwargs):
+		# determine pan and tilt Us values
+		panVal = (pan / (panMax - panMin)) * (
+			(int(self._settings.get(["pan", "maxUs"])) - int(self._settings.get(["pan", "minUs"])))) + int(
+			self._settings.get(
+				["pan", "minUs"]))
+		tiltVal = (tilt / (tiltMax - tiltMin)) * (
+			(int(self._settings.get(["tilt", "maxUs"])) - int(self._settings.get(["tilt", "minUs"])))) + int(
+			self._settings.get(
+				["tilt", "minUs"]))
+
 		if self.serial is not None and self.serial.isOpen():
-			self.serial.write('{{command:set, target:panUs, value:{}}}\n'.format(int(panVal)).encode())
+			self.serial.write('setUs {} {}\n'.format(int(panVal), int(tiltVal)))
 			self.serial.flush()
+			# read the response
 			self._logger.info(self.serial.readline())
-			self.serial.write('{{command:set, target:tiltUs, value:{}}}\n'.format(int(tiltVal)).encode())
-			self.serial.flush()
-			self._logger.info(self.serial.readline())
-
-
-# If you want your plugin to be registered within OctoPrint under a different name than what you defined in setup.py
-# ("OctoPrint-PluginSkeleton"), you may define that here. Same goes for the other metadata derived from setup.py that
-# can be overwritten via __plugin_xyz__ control properties. See the documentation for that.
-__plugin_name__ = "Pantilt_nano Plugin"
 
 
 def __plugin_load__():

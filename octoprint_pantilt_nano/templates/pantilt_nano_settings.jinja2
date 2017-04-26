@@ -1,11 +1,37 @@
-<form class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label">{{ _('Port') }}</label>
-        <div class="controls">
-            <input type="text" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.port">
-        </div>
+<div>
+    <h1>{{ _('Connection settings') }}</h1>
+    <div>
+        <form class="form-horizontal">
+            <div class="control-group" title="{{ _('Serial port to connect to') }}">
+                <label class="control-label" for="settings-port">{{ _('Serial Port') }}</label>
+                <div class="controls">
+                    <select id="settings-port"
+                            data-bind="options: settings.plugins.pantilt_nano.ports, value: settings.plugins.pantilt_nano.port"></select>
+                </div>
+            </div>
+        </form>
+
+<!--
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">{{ _('Port') }}</label>
+                <div class="controls">
+                    <input type="text" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.port">
+                </div>
+            </div>
+        </form>
+-->
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">{{ _('Baud') }}</label>
+                <div class="controls">
+                    <input type="text" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.baud">
+                </div>
+            </div>
+        </form>
+
     </div>
-</form>
+</div>
 
 <div>
     <h1>{{ _('Pan settings') }}</h1>
@@ -14,7 +40,8 @@
             <div class="control-group">
                 <label class="control-label">{{ _('Min Pan Value') }}</label>
                 <div class="controls">
-                    <input type="number" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.pan.minUs">
+                    <input type="number" class="input-block-level"
+                           data-bind="value: settings.plugins.pantilt_nano.pan.minUs">
                 </div>
             </div>
         </form>
@@ -22,7 +49,8 @@
             <div class="control-group">
                 <label class="control-label">{{ _('Max Pan Value') }}</label>
                 <div class="controls">
-                    <input type="number" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.pan.maxUs">
+                    <input type="number" class="input-block-level"
+                           data-bind="value: settings.plugins.pantilt_nano.pan.maxUs">
                 </div>
             </div>
         </form>
@@ -30,7 +58,8 @@
             <div class="control-group">
                 <label class="control-label">{{ _('Invert Pan') }}</label>
                 <div class="controls">
-                    <input type="checkbox" class="input-block-level" data-bind="checked: settings.plugins.pantilt_nano.pan.invert">
+                    <input type="checkbox" class="input-block-level"
+                           data-bind="checked: settings.plugins.pantilt_nano.pan.invert">
                 </div>
             </div>
         </form>
@@ -44,7 +73,8 @@
             <div class="control-group">
                 <label class="control-label">{{ _('Min Tilt Value') }}</label>
                 <div class="controls">
-                    <input type="number" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.tilt.minUs">
+                    <input type="number" class="input-block-level"
+                           data-bind="value: settings.plugins.pantilt_nano.tilt.minUs">
                 </div>
             </div>
         </form>
@@ -52,7 +82,8 @@
             <div class="control-group">
                 <label class="control-label">{{ _('Max Tilt Value') }}</label>
                 <div class="controls">
-                    <input type="number" class="input-block-level" data-bind="value: settings.plugins.pantilt_nano.tilt.maxUs">
+                    <input type="number" class="input-block-level"
+                           data-bind="value: settings.plugins.pantilt_nano.tilt.maxUs">
                 </div>
             </div>
         </form>
@@ -60,7 +91,8 @@
             <div class="control-group">
                 <label class="control-label">{{ _('Invert Tilt') }}</label>
                 <div class="controls">
-                    <input type="checkbox" class="input-block-level" data-bind="checked: settings.plugins.pantilt_nano.tilt.invert">
+                    <input type="checkbox" class="input-block-level"
+                           data-bind="checked: settings.plugins.pantilt_nano.tilt.invert">
                 </div>
             </div>
         </form>
