@@ -106,7 +106,14 @@ class Pantilt_nanoPlugin(octoprint.plugin.SettingsPlugin,
 
 	##~~ pantilt command handler hook
 
-	def handle_pantilt(self, pan, panMin, panMax, tilt, tiltMin, tiltMax, **kwargs):
+	def handle_pantilt(self, values, **kwargs):
+		pan = int(values['pan'])
+		panMin = int(values['panMin'])
+		panMax = int(values['panMax'])
+		tilt = int(values['tilt'])
+		tiltMin = int(values['tiltMin'])
+		tiltMax = int(values['tiltMax'])
+
 		# determine pan and tilt Us values
 		panVal = (pan / (panMax - panMin)) * (
 			(int(self._settings.get(["pan", "maxUs"])) - int(self._settings.get(["pan", "minUs"])))) + int(
