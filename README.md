@@ -1,25 +1,28 @@
 # OctoPrint-PanTilt-Nano
 
-This plugin extends the excellent plugin developed by [Salandora](https://github.com/Salandora/OctoPrint-PanTilt) and adds support
-for a simple and low cost pantilt servo bracket.  The plugin uses the web cam controlls (added through the PanTilt plugin) located on the
+This plugin extends the plugin controlls developed by [Salandora](https://github.com/Salandora/OctoPrint-PanTilt) and adds support
+for a simple and low cost 2 axis gimbal bracket.  The plugin uses the web cam controls (added through the Octoprint-PanTilt plugin) located on the
 control tab.
 
-This extension uses an Arduino Nano as the controller for the gimbal.  The arduino
-is controlled and powered through the USB port. This has only been tested on a Raspberry Pi and a Windows and Ubuntu OSes!!
+This extension uses an Arduino Nano as the controller for the gimbal.  The Nano
+is controlled and powered through the USB port. This plugin has had very limited testing!!
 
 ## Setup
+
+The base Octoprint-PanTilt plugin needs to be installed from here first:
+https://github.com/c-devine/OctoPrint-PanTilt/archive/command-handler.zip
+
+see https://github.com/c-devine/OctoPrint-PanTilt/tree/command-handler
 
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
 
     https://github.com/c-devine/OctoPrint-PanTilt-Nano/archive/master.zip
 
-**TODO:** Describe how to install your plugin, if more needs to be done than just installing it via pip or through
-the plugin manager.
 
-## Screenshots
+## Video
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/r1rvIeMVfCk/0.jpg)](http://www.youtube.com/watch?v=r1rvIeMVfCk "PanTilt-Nano")
+[![PanTilt Nano Video](https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/youtube.png?raw=true)](http://www.youtube.com/watch?v=r1rvIeMVfCk "PanTilt-Nano")
 
 
 ## Hardware
@@ -39,6 +42,7 @@ The 2 axis servo gimbals can be fond on ebay and other [online](https://www.goog
 ## Firmware
 
 The [Firmware](https://github.com/c-devine/OctoPrint-PanTilt-Nano-Firmware) is located here: https://github.com/c-devine/OctoPrint-PanTilt-Nano-Firmware.
+
 
 ## Configuration
 
