@@ -32,10 +32,8 @@ The 2 axis servo gimbals can be fond on ebay and other [online](https://www.goog
 
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/pantilt.png?raw=true" align="left">
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/webcam.png?raw=true" align="left">
-<br>
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/nano.png?raw=true" align="left">
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/harness.png?raw=true" align="left">
-<br>
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/case.png?raw=true" align="left">
 
 
