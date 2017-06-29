@@ -4,7 +4,7 @@ This plugin extends the plugin controlls developed by [Salandora](https://github
 for a simple and low cost 2 axis gimbal bracket.  The plugin uses the web cam controls (added through the Octoprint-PanTilt plugin) located on the
 control tab.
 
-This extension uses an Arduino Nano as the controller for the gimbal.  The Nano
+This implementation uses an Arduino Nano as the controller for the gimbal.  The Nano
 is controlled and powered through the USB port. This plugin has had very limited testing!!
 
 ## Setup
@@ -27,7 +27,7 @@ or manually using this URL:
 
 ## Hardware
 
-The 2 axis servo gimbals can be fond on ebay and other [online](https://www.google.com/search?q=ebay+Servo+Mount+bracket+pan+tilt+with+servos&oq=ebay+Servo+Mount+bracket+pan+tilt+with+servos)
+The 2 axis servo gimbals can be found on ebay and other [online](https://www.google.com/search?q=ebay+Servo+Mount+bracket+pan+tilt+with+servos&oq=ebay+Servo+Mount+bracket+pan+tilt+with+servos)
  locations.
 
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/pantilt.png?raw=true" width="320" height="240">
