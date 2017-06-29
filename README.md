@@ -9,12 +9,12 @@ is controlled and powered through the USB port. This plugin has had very limited
 
 ## Setup
 
-The base Octoprint-PanTilt plugin needs to be installed from here first:
+First, the base Octoprint-PanTilt plugin needs to be installed from here:
 https://github.com/c-devine/OctoPrint-PanTilt/archive/command-handler.zip
 
-see https://github.com/c-devine/OctoPrint-PanTilt/tree/command-handler
+see [command-handler topic](https://github.com/c-devine/OctoPrint-PanTilt/tree/command-handler)
 
-Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
+Then install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
 
     https://github.com/c-devine/OctoPrint-PanTilt-Nano/archive/master.zip
@@ -43,5 +43,7 @@ The [Firmware](https://github.com/c-devine/OctoPrint-PanTilt-Nano-Firmware) is l
 ## Configuration
 
 The plugin is configured though the Setting Dialog -> PanTilt-Nano screen.  Select the Serial Port, and min max Us values -> Save.
+
+
 <a href="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/settings.png?raw=true"><img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/settings.png?raw=true" width="493" height="403"></a>
 
