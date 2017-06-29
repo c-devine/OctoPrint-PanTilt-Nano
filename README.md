@@ -42,4 +42,6 @@ The [Firmware](https://github.com/c-devine/OctoPrint-PanTilt-Nano-Firmware) is l
 
 ## Configuration
 
-**TODO:** Describe your plugin's configuration options (if any).
+The plugin is configured though the Setting Dialog -> PanTilt-Nano screen.  Select the Serial Port, and min max Us values -> Save.
+<a href="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/settings.png?raw=true"><img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/settings.png?raw=true" width="493" height="403"></a>
+
