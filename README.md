@@ -28,7 +28,9 @@ or manually using this URL:
 ## Hardware
 
 The 2 axis servo gimbals can be found on ebay and other [online](https://www.google.com/search?q=ebay+Servo+Mount+bracket+pan+tilt+with+servos&oq=ebay+Servo+Mount+bracket+pan+tilt+with+servos)
- locations.
+ locations.  [Arduino Nanos](https://www.google.com/#q=Arduino+Nano+compatible+v3.0+5v+ATmega328p) are also pretty easy to find.
+
+3D Printed Part: [C270 Camera Mount Block](https://www.thingiverse.com/thing:2409919)
 
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/pantilt.png?raw=true" width="320" height="240">
 <img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/webcam.png?raw=true" width="320" height="240">
