@@ -49,3 +49,8 @@ The plugin is configured though the Setting Dialog -> PanTilt-Nano screen.  Sele
 
 <a href="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/settings.png?raw=true"><img src="https://raw.githubusercontent.com/c-devine/OctoPrint-PanTilt-Nano/snapshots/assets/img/settings.png?raw=true" width="493" height="403"></a>
 
+Also, not sure if this is needed, but I updated the /boot/config.txt
+
+max_usb_current=1
+
+to increase power to the usb port.
