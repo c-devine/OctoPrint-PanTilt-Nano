@@ -10,7 +10,8 @@ is controlled and powered through the USB port. This plugin has had very limited
 ## Setup
 
 First, the base Octoprint-PanTilt plugin needs to be installed from here:
-https://github.com/c-devine/OctoPrint-PanTilt/archive/command-handler.zip
+
+    https://github.com/Salandora/OctoPrint-PanTilt/archive/master.zip
 
 see [command-handler topic](https://github.com/c-devine/OctoPrint-PanTilt/tree/command-handler)
 
