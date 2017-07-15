@@ -13,7 +13,6 @@ First, the base Octoprint-PanTilt plugin needs to be installed from here:
 
     https://github.com/Salandora/OctoPrint-PanTilt/archive/master.zip
 
-see [command-handler topic](https://github.com/c-devine/OctoPrint-PanTilt/tree/command-handler)
 
 Then install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
